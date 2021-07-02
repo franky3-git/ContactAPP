@@ -11,54 +11,52 @@
 	
 </head>
 <body>
+	<!--overlay-->
+	<div class="cover show">
+		<form action="" class="inputContactForm">
+			<div class="inputs">
+				<div class="inputBox">
+					<input type="text" name="name" id="name" autocomplete="off" required>
+					<label for="name">name</label>
+				</div>
+				<div class="inputBox">
+					<input type="email" name="email" id="email" autocomplete="off" required>
+					<label for="email">email</label>
+				</div>
+				<div class="inputBox">
+					<input type="tel" name="tel" id="tel" autocomplete="off" required>
+					<label for="tel">tel</label>
+				</div>
+			</div>
+			<div class="btns-form-box">
+				<button class="btn-submit">submit</button>
+				<button class="btn-close">reset</button>
+			</div>
+		</form>
+	</div>
+	
+	<!--main container-->
+	<div class="container">
+		<div class="btn-open-form open">
+			<i class="fa fa-plus-circle plus"></i>
+			<i class="fa fa-times-circle time"></i>
+		</div>
+		<h1>contact manager</h1>
 
-	<div class="cover">
-		
-	</div>
-	<form action="" class="inputContactForm">
-		<div class="inputBox">
-			<label for="name">Name</label>
-			<input type="text" name="name" id="name" autocomplete="off">
-		</div>
-		<div class="inputBox">
-			<label for="email">email</label>
-			<input type="email" name="email" id="email" autocomplete="off">
-		</div>
-		<div class="inputBox">
-			<label for="tel">telephone</label>
-			<input type="tel" name="tel" id="tel" autocomplete="off">
-		</div>
-		<div class="btns-form-box">
-			<button class="btn-close">close</button>
-			<button class="btn-submit">submit</button>
-		</div>
-	</form>
-	
-	<div class="btn-open-form"><i class="fa fa-plus-circle"></i></div>
-	<h1>contact manager</h1>
-	
-	<div class="contacts">
-		<div class="single-contact">
-			<div class="part left">
-				<p class="name">han solo</p>
-				<p class="email">han.solo@falcon.com</p>
-				<p class="tel">613-727-4723</p>
-			</div>
-			<div class="part right">
-				<i class="fa fa-trash"></i>
-			</div>
-		</div>
-		<div class="single-contact">
-			<div class="part left">
-				<p class="name">han solo</p>
-				<p class="email">han.solo@falcon.com</p>
-				<p class="tel">613-727-4723</p>
-			</div>
-			<div class="part right">
-				<i class="fa fa-trash"></i>
+		<div class="contacts">
+			<div class="single-contact">
+				<div class="part left">
+					<p class="name">han solo</p>
+					<p class="email">han.solo@falcon.com</p>
+					<p class="tel">613-727-4723</p>
+				</div>
+				<div class="part right">
+					<i class="fa fa-trash"></i>
+				</div>
 			</div>
 		</div>
 	</div>
+	
 	
 	<script src="bundle.js"></script>
 	

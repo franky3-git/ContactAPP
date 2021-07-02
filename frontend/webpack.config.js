@@ -12,5 +12,19 @@ module.exports = {
 		port: 5000,
 		open: true,
 		hot: true
+	},
+	module: {
+	  rules: [
+		{
+		  test: /\.m?js$/,
+		  exclude: /node_modules/,
+		  use: {
+			loader: 'babel-loader',
+			options: {
+			  presets: ['@babel/preset-env']
+			}
+		  }
+		}
+	  ]
 	}
 }

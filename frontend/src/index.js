@@ -1,33 +1,36 @@
 //"use strict"
 let log = console.log;
+import { getContacts } from './api';
+import render from './utils';
 
-//Variables declaration
-//const dogList = 'https://dog.ceo/api/breeds/list/all';
-//let specialTypeDog = 'https://dog.ceo/api/breed/%type%/images/random';
-
-//document.addEventListener('DOMContentLoaded', init);
-
-function init() {
+(function(){
 	const contactsBox = document.querySelector('.contacts');
-	const submitBtn = document.querySelector('.btn-submit');
-	const closeBtn = document.querySelector('.btn-close');
 	const btnOpenForm = document.querySelector('.btn-open-form');
 	const form = document.querySelector('.inputContactForm');
 	const cover = document.querySelector('.cover');
-
-	let contacts = localStorage.getItem('contacts') ? JSON.parse(localStorage.getItem('contacts')) : [];
+	const submitBtn = document.querySelector('.btn-submit');
+	const closeBtn = document.querySelector('.btn-close');
 	
-	render(contactsBox, contacts);
-
-	btnOpenForm.addEventListener('click', function() {
-		form.classList.add('show');
-		cover.classList.add('on');
+	btnOpenForm.addEventListener('click', function(e) {
+		if(e.currentTarget.classList.contains('open')) {
+			cover.className = 'cover show';
+			e.currentTarget.className = 'btn-open-form close';
+		} else {
+			cover.className = 'cover';
+			e.currentTarget.className = 'btn-open-form open';
+		}
 	});
 
-	closeBtn.addEventListener('click', () => {
-		form.classList.remove('show');
-		cover.classList.remove('on');
-	});
+	const start = async () => {
+		let {contacts} = await getContacts()
+		log(contacts)
+		render(contactsBox, contacts)
+	}
+
+	start();
+})()
+
+function init() {
 
 	submitBtn.addEventListener('click', function (e) {
 		e.preventDefault()
@@ -37,34 +40,7 @@ function init() {
 
 		const newContact = {name, email, telephone};
 		contacts.push(newContact);
-		render(contactsBox, contacts);
-		saveContacts(contacts);
 	});
 	
 }
 
-
-
-function render(box, arrayContact) {
-	box.innerHTML = arrayContact.map(contact => {
-		return `
-			<div class="single-contact">
-				<div class="part left">
-					<p class="name">${contact.name}</p>
-					<p class="email">${contact.email}</p>
-					<p class="tel">${contact.telephone}</p>
-				</div>
-				<div class="part right">
-					<i class="fa fa-trash"></i>
-				</div>
-			</div>
-		`
-	}).join('');
-}
-	
-function saveContacts(arrayContacts) {
-	localStorage.setItem('contacts', JSON.stringify(arrayContacts));
-}
-
-
-//localStorage.clear(); //comment this line if you want to not clear the contact list
