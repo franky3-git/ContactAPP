@@ -1,4 +1,6 @@
-const express = require('express');
+import express from 'express';
+import cors from 'cors';
+
 
 const contacts = [
 	{name: 'ndounga frank', 'email': 'frankndounga@yahoo.fr', tel: 696250624, _id: 1},
@@ -7,6 +9,8 @@ const contacts = [
 ]
 
 const app = express();
+
+app.use(cors());
 
 app.get('/api/v1/contacts', (req, res) => {
 	res.status(200).json({message: 'success', contacts: contacts})
