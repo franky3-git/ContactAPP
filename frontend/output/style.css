@@ -1,3 +1,9 @@
+:root {
+	--first-color: #071a52;
+	--second-color: #086972;
+	--main-color: linear-gradient(to right, rgb(15, 32, 39), rgb(32, 58, 67), rgb(44, 83, 100));
+}
+
 * {
 	font-family: sans-serif;
 	margin: 0;
@@ -7,107 +13,166 @@
 body {
 	color: #333;
 }
+.container {
+	position: relative;
+	max-width: 900px;
+	min-height: 100vh;
+	margin: auto;
+}
 
 h1 {
 	color: #eee;
 	padding: 20px 0;
 	text-align: center;
-	background-color: cornflowerblue;
+	background: var(--main-color);
 	text-transform: uppercase;
 	font-size: 2.7rem;
 	text-shadow: 2px 4px 5px rgba(0,0,0,.8)
 }
 .contacts {
-	margin: 20px auto;
+	margin: 15px auto;
 	width: 80%;
-	border: solid 1px #777;
 }
+
 .single-contact {
 	display: flex;
-	
+	margin-bottom: 10px;
+	transition: 300ms transform;
+}
+.single-contact:hover {
+	transform: scale(1.1);
 }
 .right {
-	width: 50px;
+	width: 100px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background: #ddd;
-	padding-top: 10px;
+	cursor: pointer;
 }
 .left {
-	flex: 1;
+	flex-grow: 1;
 	padding-left: 20px;
 }
 .name {
-	font-size: 2.2rem;
-	margin-bottom: 10px;
+	font-size: 1.3rem;
+	margin-bottom: .3em;
 	text-transform: capitalize;
 }
 .email, .tel {
-	margin-left: 15px;
+	margin-left: 1em;
+	font-size: .9rem;
 	color: #888;
 }
 .fa {
 	cursor: pointer;
 }
+
+/* style the button to make appear the form */
 .btn-open-form {
 	position: absolute;
 	right: 30px;
 	bottom: 30px;
 	font-size: 4rem;
-	z-index: 0;
+	z-index: 15;
+}
+.btn-open-form i {
+	display: none;
+}
+.btn-open-form.open .plus {
+	display: inline-block;
+}
+.btn-open-form.close .time {
+	display: inline-block
 }
 .fa-plus-circle {
-	color: saddlebrown;
+	color: var(--second-color);
 }
+.fa-times-circle {
+	color: #f00;
+}
+
+/* style the overlay */
 .cover {
 	height: 100vh;
-	background: rgba(0,0,0,.5);
+	background: rgba(31, 66, 135, .5);
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
+	height: 100%;
 	z-index: 5;
-	/*display: none;*/
 	opacity: 0;
+	transition: 900ms all;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	pointer-events: none;
-	transition: 800ms all;
 }
-.cover.on {
-	/*display: block;*/
+.cover.show {
 	opacity: 1;
 	pointer-events: auto;
 }
 form {
 	width: 50%;
-	padding: 30px;
+	padding: 2em;
+	color: #eee;
 	box-shadow: 1px 2px 7px rgba(0,0,0,.4);
-	position: absolute;
-	top: 200px;
-	left: 50%;
-	transform: translate(-50%, -500px);
-	background-color: aliceblue;
-	z-index: 10;
-	transition: 1s transform;
+	background: var(--main-color);
+	border-radius: 10px;
+	transition: 14000ms transform 400ms;
+}
+.inputs {
+	margin: auto;
+	width: 90%;
 }
 .inputBox {
 	margin-bottom: 15px;
-	display: flex;
-}
-.inputBox *:nth-child(2) {
-	flex: 2;
+	position: relative;
+	padding: 20px 0;
 }
 input {
-	padding: 4px;
+	width: 100%;
+	border: none;
+	background: transparent;
+	border-bottom: 2px #eee solid;
+	outline: none;
+	color: #eee;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+}
+input:focus ~ label, input:valid ~ label{
+	left: 2px;
+	font-size: .8rem;
+	bottom: 85%;
 }
 label {
-	flex: 1;
+	position: absolute;
+	font-size: 1.3rem;
+	bottom: 10px;
+	left: 10px;
+	transition: 200ms all;
+}
+::placeholder {
+	color: #eee;
+}
+.btns-form-box {
+	text-align: center;
 }
 .btn-close, .btn-submit {
-	padding: 4px 7px;
+	padding: .5em 1em;
+	cursor: pointer;
+	font-size: 1.1rem;
+	background: var(--second-color);
+	border: none;
+	color: #eee;
+	border-radius: 4px;
+	transition: 200ms;
 }
-form.show {
-	transform: translate(-50%, 0);
+.btn-close:active, .btn-submit:active {
+	transform: scale(.95);
 }
 
 
