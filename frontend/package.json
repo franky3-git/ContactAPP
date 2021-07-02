@@ -1,0 +1,18 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack": "^5.42.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "webpack serve"
+  },
+  "keywords": [],
+  "author": "frank",
+  "license": "MIT"
+}
