@@ -1,4 +1,4 @@
-frontend/css
-frontend/webfonts
+frontend/output/css
+frontend/output/webfonts
 backend/node_modules
 frontend/node_modules
