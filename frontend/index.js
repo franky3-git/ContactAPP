@@ -5,10 +5,9 @@ let log = console.log;
 //const dogList = 'https://dog.ceo/api/breeds/list/all';
 //let specialTypeDog = 'https://dog.ceo/api/breed/%type%/images/random';
 
-document.addEventListener('DOMContentLoaded', init);
+//document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-	log('test')
 	const contactsBox = document.querySelector('.contacts');
 	const submitBtn = document.querySelector('.btn-submit');
 	const closeBtn = document.querySelector('.btn-close');
@@ -68,17 +67,4 @@ function saveContacts(arrayContacts) {
 }
 
 
-localStorage.clear(); //comment this line if you want to not clear the contact list
-
-
-
-
-
-
-
-
-
-
-
-
-
+//localStorage.clear(); //comment this line if you want to not clear the contact list
