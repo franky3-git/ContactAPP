@@ -37,6 +37,10 @@
 * create some variables to remember the colors
 * make some cool animations
 
+7. levelup the app with the integration of a database
+* install mongodb driver `npm i mongodb`
+
+
 
 
 
